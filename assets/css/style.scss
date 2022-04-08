@@ -1,0 +1,584 @@
+/*
+@File: Emilono Template Styles
+
+* This file contains the styling for the actual template, this
+is the file you need to edit to change the look of the
+template.
+
+This files table contents are outlined below>>>>>
+
+*******************************************
+*******************************************
+
+** - Default CSS
+** - Preloader CSS
+** - Navbar CSS
+** - Coming Soon CSS
+** - Sidebar Modal CSS
+*/
+
+/*================================================
+Default CSS
+=================================================*/
+@import url('https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800&display=swap');
+
+$main-font-family: 'Lexend Deca', sans-serif;
+$heading-font-family: 'Dosis', sans-serif;
+$main-color: #f4b368;
+$optional-color: #170349;
+$black-color: #000000;
+$white-color: #ffffff;
+$transition: .5s;
+
+body {
+    padding: 0;
+    margin: 0;
+    font: {
+        family: $main-font-family;
+    }
+}
+a {
+    text-decoration: none;
+    transition: $transition;
+
+    &:hover, &:focus {
+        text-decoration: none;
+    }
+}
+p {
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+.d-table {
+    width: 100%;
+    height: 100%;
+
+    &-cell {
+        vertical-align: middle;
+    }
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    color: $black-color;
+}
+img {
+    max-width: 100%;
+}
+
+/*================================================
+Preloader CSS
+=================================================*/
+.preloader {
+    position: fixed;
+    left: 0;
+    width: 0;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    z-index: 9999999;
+    background-color: $optional-color;
+
+    .spinner {
+        width: 60px;
+        height: 60px;
+        position: absolute;
+        margin: 0 auto;
+        top: 45%;
+        left: 0;
+        right: 0;
+        transform: translateY(-45%);
+    }
+    .double-bounce1, .double-bounce2 {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: $white-color;
+        opacity: 0.6;
+        position: absolute;
+        top: 0;
+        left: 0;
+        animation: sk-bounce 2.0s infinite ease-in-out;
+    }
+    .double-bounce2 {
+        animation-delay: -1.0s;
+    }
+}
+@keyframes sk-bounce {
+    0%, 100% {
+        transform: scale(0.0);
+    } 50% {
+        transform: scale(1.0);
+    }
+}
+
+/*================================================
+Navbar CSS
+=================================================*/
+.navbar-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    z-index: 99;
+    padding: {
+        top: 30px;
+    }
+}
+.navbar-menu {
+    text-align: right;
+
+    .logo {
+        display: none;
+        text-align: left;
+
+        a {
+            display: inline-block;
+        }
+    }
+    .burger-menu {
+        width: 35px;
+        height: auto;
+        background-color: transparent;
+        margin-left: auto;
+        cursor: pointer;
+
+        span {
+            display: block;
+            width: 35px;
+            height: 3px;
+            background: $white-color;
+            transition: $transition;
+            border-radius: 30px;
+            margin: {
+                left: auto;
+                bottom: 4px;
+            }
+            &:nth-child(3) {
+                margin-bottom: 0;
+                width: 28px;
+                margin-left: auto;
+            }
+        }
+        &:hover {
+            span {
+                &:nth-child(3) {
+                    width: 35px;
+                }
+            }
+        }
+    }
+}
+
+/*================================================
+Coming Soon CSS
+=================================================*/
+.coming-soon-area {
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+    overflow: hidden;
+    background: {
+        color: $optional-color;
+    }
+    &::before {
+        content: '';
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        background: {
+            image: url(../../assets/img/dot-bg.png);
+            position: center center;
+            size: cover;
+            repeat: no-repeat;
+        }
+        animation: 200s para infinite linear;
+        background: {
+            image: url(../../assets/img/dot-bg.png);
+            position: 0 20%, 0 100%, 0 50%, 0 100%, 0 0;
+            size: 2500px, 800px, 500px 200px, 1000px, 400px 260px;
+            repeat: repeat-x;
+        }
+    }
+}
+.coming-soon-content {
+    margin-left: auto;
+    max-width: 710px;
+
+    .logo {
+        margin-bottom: 30px;
+
+        a {
+            display: inline-block;
+        }
+    }
+    h2 {
+        color: $white-color;
+        font-size: 55px;
+        line-height: 1.3;
+
+        span {
+            color: $main-color;
+        }
+    }
+    p {
+        color: #cebafe;
+        line-height: 1.9;
+        font-size: 15px;
+        max-width: 600px;
+        margin: {
+            bottom: 0;
+            top: 22px;
+        }
+    }
+    .newsletter-form {
+        position: relative;
+        margin-top: 35px;
+        max-width: 500px;
+
+        .input-newsletter {
+            background-color: #3a2964;
+            border: none;
+            border-radius: 30px;
+            height: 55px;
+            color: $white-color;
+            font-size: 14px;
+            display: block;
+            width: 100%;
+            padding-left: 20px;
+            transition: $transition;
+            outline: 0;
+
+            &::placeholder {
+                color: $white-color;
+            }
+            &:focus {
+                padding-left: 22px;
+            }
+        }
+        button {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 55px;
+            line-height: 56px;
+            border-radius: 30px;
+            border: none;
+            background-color: $main-color;
+            outline: 0;
+            color: $white-color;
+            transition: $transition;
+            text-transform: uppercase;
+            font-size: 14px;
+            padding: 0 25px;
+
+            &:hover {
+                color: $main-color;
+                background-color: $white-color;
+            }
+        }
+        #validator-newsletter {
+            color: $white-color;
+            font-size: 14px;
+            position: absolute;
+            left: 0;
+            bottom: -32px;
+        }
+    }
+    #timer {
+        margin-top: 50px;
+
+        div {
+            display: inline-block;
+            text-align: center;
+            width: 130px;
+            margin-right: 15px;
+            height: 130px;
+            color: $white-color;
+            font-size: 40px;
+            border: 14px solid #13023e;
+            border-radius: 50%;
+            background-color: #200a5c;
+            padding-top: 8px;
+
+            span {
+                display: block;
+                font-size: 12.5px;
+                margin-top: -5px;
+                color: #cebafe;
+                text-transform: uppercase;
+            }
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}
+.coming-soon-image {
+    text-align: center;
+    margin-right: 30px;
+}
+.shape1 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+.shape2 {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+@keyframes para {
+    100% {
+        background-position: -5000px 20%, -800px 95%, 500px 50%, 1000px 100%, 400px 0;
+    }
+}
+
+/*================================================
+Sidebar Modal CSS
+=================================================*/
+.sidebar-modal {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .8);
+    z-index: 99999;
+    opacity: 0;
+    visibility: hidden;
+    transition: $transition;
+    overflow: hidden;
+
+    .sidebar-modal-inner {
+        position: absolute;
+        right: -100%;
+        top: 0;
+        width: 40%;
+        overflow-y: scroll;
+        height: 100%;
+        background-color: $white-color;
+        transition: .7s;
+        z-index: 1;
+        padding: {
+            top: 60px;
+            bottom: 60px;
+            left: 60px;
+            right: 60px;
+        }
+        .close-btn {
+            display: inline-block;
+            position: absolute;
+            right: 35px;
+            top: 20px;
+            font-size: 25px;
+            transition: $transition;
+            color: $black-color;
+            opacity: .66;
+            cursor: pointer;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+    .about-area {
+        margin: {
+            bottom: 40px;
+        }
+        .title {
+            h2 {
+                margin-bottom: 0;
+                font: {
+                    size: 28px;
+                    weight: 700;
+                    family: $heading-font-family;
+                }
+            }
+            p {
+                font-size: 14px;
+                margin-top: 12px;
+                line-height: 1.7;
+                color: #333333;
+            }
+        }
+    }
+    .contact-area {
+        .title {
+            margin-bottom: 25px;
+
+            h2 {
+                margin-bottom: 0;
+                font: {
+                    size: 28px;
+                    weight: 700;
+                    family: $heading-font-family;
+                }
+            }
+        }
+        .contact-form {
+            max-width: 500px;
+            
+            form {
+                .form-control {
+                    height: 45px;
+                    border: none;
+                    box-shadow: 0 5px 28.5px 1.5px rgba(149, 152, 200, .15);
+                    background-color: $white-color;
+                    font-size: 13.5px;
+                    padding-left: 15px;
+                    color: $black-color;
+                }
+                textarea.form-control {
+                    height: auto;
+                    padding-top: 10px;
+                }
+                button {
+                    margin-top: 10px;
+                    border: none;
+                    background-color: $black-color;
+                    outline: 0;
+                    color: $white-color;
+                    transition: $transition;
+                    border-radius: 30px;
+                    box-shadow: 0 5px 28.5px 1.5px rgba(0, 0, 0, .3);
+                    font: {
+                        family: $heading-font-family;
+                        size: 16px;
+                        weight: 600;
+                    }
+                    padding: {
+                        left: 30px;
+                        right: 30px;
+                        top: 10px;
+                        bottom: 11px;
+                    }
+                    &:hover {
+                        color: $white-color;
+                        background-color: $main-color;
+                    }
+                }
+                .help-block {
+                    ul {
+                        padding-left: 0;
+                        margin-bottom: 0;
+                        list-style-type: none;
+                    }
+                    &.with-errors {
+                        ul {
+                            color: red;
+                            margin-top: 7px;
+                            font-size: 14px;
+                        }
+                    }
+                }
+                #msgSubmit {
+                    margin-bottom: 0;
+                    font-size: 20px;
+
+                    &.text-danger {
+                        margin-top: 8px;
+                    }
+                    &.text-success {
+                        margin-top: 8px;
+                    }
+                }
+            }
+        }
+        .contact-info {
+            text-align: center;
+            margin-top: 50px;
+        
+            .contact-info-content {
+                h3 {
+                    margin-bottom: 15px;
+                    font: {
+                        size: 20px;
+                        weight: 700;
+                        family: $heading-font-family;
+                    }
+                }
+                h2 {
+                    margin-bottom: 0;
+                    font: {
+                        size: 28px;
+                        weight: 700;
+                        family: $heading-font-family;
+                    }
+                    a {
+                        display: inline-block;
+                        color: $main-color;
+        
+                        &:hover {
+                            color: $black-color;
+                        }
+                        &:not(:first-child) {
+                            color: $black-color;
+        
+                            &:hover {
+                                color: $main-color;
+                            }
+                        }
+                    }
+                    span {
+                        display: block;
+                        color: #57647c;
+                        margin: {
+                            top: 8px;
+                            bottom: 2px;
+                        }
+                        font: {
+                            size: 14px;
+                            weight: 500;
+                        }
+                    }
+                }
+                .social {
+                    padding-left: 0;
+                    list-style-type: none;
+                    margin: {
+                        bottom: 0;
+                        top: 20px;
+                    }
+                    li {
+                        display: inline-block;
+                        margin: 0 1px;
+        
+                        a {
+                            width: 35px;
+                            height: 35px;
+                            line-height: 34px;
+                            border: 1px solid #dadada;
+                            border-radius: 50%;
+                            color: #aba5a5;
+                            display: block;
+        
+                            i {
+                                font-size: 14px;
+                            }
+                            &:hover {
+                                color: $white-color;
+                                border-color: $main-color;
+                                background-color: $main-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.active {
+        opacity: 1;
+        visibility: visible;
+        
+        .sidebar-modal-inner {
+            right: 0;
+        }
+    }
+}
